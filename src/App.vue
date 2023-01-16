@@ -294,6 +294,7 @@
                             type="text"
                             id="dil"
                             placeholder="yabancı dil"
+                            v-model="Dil.dil"
                           />
                         </div>
                         <div class="col">
@@ -316,7 +317,25 @@
                       </div>
                     </div>
                   </div>
-                </form></b-card-text
+                </form>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Yabancı Dil</th>
+                      <th>Seviye</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="dil in Diller" :key="dil">
+                      <td>
+                        {{ dil.dil }}
+                      </td>
+                      <td>
+                        {{ dil.dil_seviye }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table></b-card-text
               >
             </b-tab>
           </b-tabs>
@@ -381,13 +400,16 @@ export default {
       this.Yetenek = {};
     },
     DIL_KAYIT() {
-      let s = this.$refs.dil_seviye.value;
-      this.Dil.dil_seviye = s;
+      let s2 = this.$refs.dil_seviye.value;
+      this.Dil.dil_seviye = s2;
       let dil = this.Dil.dil;
       let dil_seviye = this.Dil.dil_seviye;
       if (dil == "" || dil_seviye == "") {
         alert("Lütfen Dil Ve Seviye Ekleyin!");
+      } else {
+        this.Diller.push(this.Dil);
       }
+      this.Dil = {};
     },
   },
 };
