@@ -190,8 +190,7 @@
                 </table>
               </b-card-text>
             </b-tab>
-
-            <b-tab title="Sosyal Medya" active>
+            <b-tab title="Sosyal Medya">
               <b-card-text>
                 <form>
                   <div class="form-group">
@@ -222,11 +221,7 @@
                           </div>
                           <div class="col">
                             <label for="git">GitHub</label>
-                            <input
-                              type="text"
-                              id="git"
-                              placeholder="github"
-                            />
+                            <input type="text" id="git" placeholder="github" />
                           </div>
                         </div>
                       </div>
@@ -235,8 +230,38 @@
                 </form>
               </b-card-text>
             </b-tab>
-            <b-tab title="Yetenekler">
-              <b-card-text>Tab contents 2</b-card-text>
+            <b-tab title="Yetenekler" active>
+              <b-card-text
+                ><form @action="YETENEK_KAYIT">
+                  <div class="form-group">
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label for="yetenek">Yetenek</label>
+                          <input
+                            type="text"
+                            id="yetenek"
+                            placeholder="yetenek"
+                          />
+                        </div>
+                        <div class="col">
+                          <label for="seviye">Seviye</label> <br />
+                          <select name="" id="seviye">
+                            <option value="temel">Temel</option>
+                            <option value="orta">Orta</option>
+                            <option value="iyi">İyi</option>
+                          </select>
+                        </div>
+                        <div class="col pt-3">
+                          <button type="submit" class="btn btn-primary mt-4">
+                            EKLE
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form></b-card-text
+              >
             </b-tab>
             <b-tab title="Yabancı Dil">
               <b-card-text>Tab contents 2</b-card-text>
@@ -279,6 +304,9 @@ export default {
         this.Deneyimler.push(this.Deneyim);
       }
     },
+    YETENEK_KAYIT(e) {
+      e.preventDefault();
+    },
   },
 };
 </script>
@@ -319,11 +347,13 @@ label {
   font-size: 16px;
   margin: 10px 0 5px 0;
 }
-input {
+input,
+select {
   border: 1px solid orange;
   border-radius: 6px;
   padding: 8px 5px;
   width: 100%;
+  background-color: transparent;
 }
 input:focus-visible,
 input:active,
