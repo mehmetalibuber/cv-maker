@@ -232,7 +232,7 @@
             </b-tab>
             <b-tab title="Yetenekler" active>
               <b-card-text
-                ><form @action="YETENEK_KAYIT">
+                ><form @submit="YETENEK_KAYIT">
                   <div class="form-group">
                     <div class="col">
                       <div class="row">
@@ -242,11 +242,12 @@
                             type="text"
                             id="yetenek"
                             placeholder="yetenek"
+                            v-model="Yetenek.yetenek"
                           />
                         </div>
                         <div class="col">
-                          <label for="seviye">Seviye</label> <br />
-                          <select name="" id="seviye">
+                          <label for="seviye_select">Seviye</label> <br />
+                          <select name="" id="seviye_select" ref="seviye_deger">
                             <option value="temel">Temel</option>
                             <option value="orta">Orta</option>
                             <option value="iyi">İyi</option>
@@ -260,6 +261,24 @@
                       </div>
                     </div>
                   </div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Yetenek</th>
+                        <th>Seviye</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="yetenek in Yetenekler" :key="yetenek">
+                        <td>
+                          {{ yetenek.yetenek }}
+                        </td>
+                        <td>
+                          {{ yetenek.seviye }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </form></b-card-text
               >
             </b-tab>
@@ -287,6 +306,11 @@ export default {
         giris: "",
         cikis: "",
       },
+      Yetenekler: [],
+      Yetenek: {
+        yetenek: "",
+        seviye: "",
+      },
     };
   },
   created() {},
@@ -303,9 +327,19 @@ export default {
       } else {
         this.Deneyimler.push(this.Deneyim);
       }
+      this.Deneyim = {};
     },
     YETENEK_KAYIT(e) {
       e.preventDefault();
+      // let s = this.$refs.seviye_deger.value;
+      let yetenek = this.Yetenek.yetenek;
+      let seviye = this.Yetenek.seviye;
+
+      if (yetenek == "" || seviye == "") {
+        alert("Lütfen Yetenek Bilgileri Girin!");
+      } else {
+        this.Yetenekler.push(this.Yetenek);
+      }
     },
   },
 };
