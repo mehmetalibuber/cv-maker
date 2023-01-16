@@ -230,18 +230,18 @@
                 </form>
               </b-card-text>
             </b-tab>
-            <b-tab title="Yetenekler" active>
+            <b-tab title="Yetenek Ve Hobiler" active>
               <b-card-text
                 ><form @submit="YETENEK_KAYIT">
                   <div class="form-group">
                     <div class="col">
                       <div class="row">
                         <div class="col">
-                          <label for="yetenek">Yetenek</label>
+                          <label for="yetenek">Yetenek Veya Hobi</label>
                           <input
                             type="text"
                             id="yetenek"
-                            placeholder="yetenek"
+                            placeholder="yetenek veya hobi"
                             v-model="Yetenek.yetenek"
                           />
                         </div>
@@ -264,7 +264,7 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>Yetenek</th>
+                        <th>Yetenek Veya Hobi</th>
                         <th>Seviye</th>
                       </tr>
                     </thead>
@@ -331,7 +331,8 @@ export default {
     },
     YETENEK_KAYIT(e) {
       e.preventDefault();
-      // let s = this.$refs.seviye_deger.value;
+      let s = this.$refs.seviye_deger.value;
+      this.Yetenek.seviye = s;
       let yetenek = this.Yetenek.yetenek;
       let seviye = this.Yetenek.seviye;
 
@@ -340,6 +341,7 @@ export default {
       } else {
         this.Yetenekler.push(this.Yetenek);
       }
+      this.Yetenek = {};
     },
   },
 };
