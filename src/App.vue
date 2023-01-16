@@ -112,7 +112,7 @@
             </b-tab>
             <b-tab title="Deneyim">
               <b-card-text>
-                <form @submit="DENEYIM_KAYIT">
+                <form @submit.prevent="DENEYIM_KAYIT">
                   <div class="form-group">
                     <div class="row">
                       <div class="col">
@@ -230,9 +230,9 @@
                 </form>
               </b-card-text>
             </b-tab>
-            <b-tab title="Yetenek Ve Hobiler" active>
+            <b-tab title="Yetenek Ve Hobiler">
               <b-card-text
-                ><form @submit="YETENEK_KAYIT">
+                ><form @submit.prevent="YETENEK_KAYIT">
                   <div class="form-group">
                     <div class="col">
                       <div class="row">
@@ -282,8 +282,42 @@
                 </form></b-card-text
               >
             </b-tab>
-            <b-tab title="Yabancı Dil">
-              <b-card-text>Tab contents 2</b-card-text>
+            <b-tab title="Yabancı Dil" active>
+              <b-card-text
+                ><form @submit.prevent="DIL_KAYIT">
+                  <div class="form-group">
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label for="dil">Yabancı Dil</label>
+                          <input
+                            type="text"
+                            id="dil"
+                            placeholder="yabancı dil"
+                          />
+                        </div>
+                        <div class="col">
+                          <label for="dil_seviye">Seviye </label>
+                          <select name="" id="dil_seviye" ref="dil_seviye">
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                          </select>
+                        </div>
+
+                        <div class="col pt-3">
+                          <button type="submit" class="btn btn-primary mt-4">
+                            EKLE
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form></b-card-text
+              >
             </b-tab>
           </b-tabs>
         </b-card>
@@ -311,12 +345,16 @@ export default {
         yetenek: "",
         seviye: "",
       },
+      Diller: [],
+      Dil: {
+        dil: "",
+        dil_seviye: "",
+      },
     };
   },
   created() {},
   methods: {
-    DENEYIM_KAYIT(e) {
-      e.preventDefault();
+    DENEYIM_KAYIT() {
       let firma = this.Deneyim.firma;
       let pozisyon = this.Deneyim.pozisyon;
       let giris = this.Deneyim.giris;
@@ -329,8 +367,7 @@ export default {
       }
       this.Deneyim = {};
     },
-    YETENEK_KAYIT(e) {
-      e.preventDefault();
+    YETENEK_KAYIT() {
       let s = this.$refs.seviye_deger.value;
       this.Yetenek.seviye = s;
       let yetenek = this.Yetenek.yetenek;
@@ -342,6 +379,15 @@ export default {
         this.Yetenekler.push(this.Yetenek);
       }
       this.Yetenek = {};
+    },
+    DIL_KAYIT() {
+      let s = this.$refs.dil_seviye.value;
+      this.Dil.dil_seviye = s;
+      let dil = this.Dil.dil;
+      let dil_seviye = this.Dil.dil_seviye;
+      if (dil == "" || dil_seviye == "") {
+        alert("Lütfen Dil Ve Seviye Ekleyin!");
+      }
     },
   },
 };
