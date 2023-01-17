@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+import jsPdf from 'jspdf'
+
 import {
   BootstrapVue,
   IconsPlugin
@@ -13,6 +15,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+Vue.use(jsPdf)
 new Vue({
   render: h => h(App),
 }).$mount('#app')

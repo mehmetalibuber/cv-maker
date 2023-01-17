@@ -343,13 +343,59 @@
       </div>
     </section>
     <!-- tabs end -->
+
+    <!-- CONTENT SECTION START -->
+    <section class="preview container" ref="content">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <div class="col">İSİM</div>
+            <div class="col">GÖREV</div>
+            <div class="col">WEBSİTE</div>
+          </div>
+          <div class="col">
+            <div class="col">MAİL</div>
+            <div class="col">TELEFON</div>
+            <div class="col">ŞEHİR</div>
+          </div>
+        </div>
+        <hr />
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <div class="col">DENEYİMLER</div>
+              <div class="col">
+                <ul>
+                  <li>
+                    <p>firma 1</p>
+                    <p>pozisyon</p>
+                    <p>giriş</p>
+                    <p>çıkış</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <div class="col">EĞİTİM BİLGİLERİ</div>
+              <div class="col">
+                <p>lise adı</p>
+                <p>mezuniyet tarihi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CONTENT SECTION END -->
+
+    <button @click="generatePDF">save</button>
   </div>
 </template>
 
 <script>
+import jspdf from "jspdf";
 export default {
   name: "App",
-
   data() {
     return {
       Deneyimler: [],
@@ -411,11 +457,24 @@ export default {
       }
       this.Dil = {};
     },
+
+    //
+
+    generatePDF() {
+      let html = this.$refs.content.innerHTML;
+      let doc = new jspdf();
+      doc.fromHTML(html, 1, 1);
+      doc.save("output.pdf");
+    },
   },
 };
 </script>
 
 <style>
+/*
+300 DPI	2480 px	3508 px	
+*/
+
 #app {
   position: relative;
   width: 100%;
@@ -467,5 +526,11 @@ input:visited {
   border-block-color: red;
   border-block-start-color: aqua;
   border-width: 3px;
+}
+/* PREVIEW */
+.preview {
+  width: 100%;
+  height: auto;
+  background-color: red;
 }
 </style>
