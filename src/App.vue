@@ -394,6 +394,8 @@
 
 <script>
 import jspdf from "jspdf";
+import html2canvas from "html2canvas"
+
 export default {
   name: "App",
   data() {
@@ -461,10 +463,16 @@ export default {
     //
 
     generatePDF() {
-      let html = this.$refs.content.innerHTML;
-      let doc = new jspdf();
-      doc.fromHTML(html, 1, 1);
-      doc.save("output.pdf");
+      const doc = new jspdf();
+      /** WITH CSS */
+      var canvasElement = document.createElement("canvas");
+      html2canvas(this.$refs.content, { canvas: canvasElement }).then(function (
+        
+      ) {
+      //  const img = canvas.toDataURL("image/jpeg", 0.8);
+      //  doc.addImage(img, "JPEG", 20, 20);
+        doc.save("sample.pdf");
+      });
     },
   },
 };
