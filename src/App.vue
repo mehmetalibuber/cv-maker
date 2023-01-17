@@ -395,7 +395,7 @@
 <script>
 //import jspdf from "jspdf";
 //import html2canvas from "html2canvas";
-import html2pdf from "html2pdf";
+import html2pdf from "html2pdf.js";
 
 export default {
   name: "App",
