@@ -79,7 +79,7 @@
                 </form>
               </b-card-text>
             </b-tab>
-            <b-tab title="Eğitim" active>
+            <b-tab title="Eğitim">
               <b-card-text>
                 <form action="">
                   <div class="form-group">
@@ -202,23 +202,29 @@
                 </table>
               </b-card-text>
             </b-tab>
-            <b-tab title="Sosyal Medya">
+            <b-tab title="Sosyal Medya" active>
               <b-card-text>
                 <form>
                   <div class="form-group">
                     <div class="col">
                       <div class="row">
                         <div class="col">
-                          <label for="linkledin">LinkledIn</label>
+                          <label for="linkedin">LinkledIn</label>
                           <input
                             type="text"
                             id="linkedin"
-                            placeholder="linkledin"
+                            placeholder="linkedin"
+                            v-model="linkedin"
                           />
                         </div>
                         <div class="col">
                           <label for="face">Facebook</label>
-                          <input type="text" id="face" placeholder="facebook" />
+                          <input
+                            type="text"
+                            id="face"
+                            placeholder="facebook"
+                            v-model="facebook"
+                          />
                         </div>
                       </div>
                       <div class="col">
@@ -229,11 +235,17 @@
                               type="text"
                               id="insta"
                               placeholder="instagram"
+                              v-model="instagram"
                             />
                           </div>
                           <div class="col">
                             <label for="git">GitHub</label>
-                            <input type="text" id="git" placeholder="github" />
+                            <input
+                              type="text"
+                              id="git"
+                              placeholder="github"
+                              v-model="github"
+                            />
                           </div>
                         </div>
                       </div>
@@ -424,6 +436,11 @@ export default {
       liseBitis: "",
       universite: "",
       universiteBitis: "",
+
+      linkedin: "",
+      facebook: "",
+      instagram: "",
+      github: "",
 
       Deneyimler: [],
       Deneyim: {
