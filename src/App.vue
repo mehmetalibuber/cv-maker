@@ -384,7 +384,7 @@
         <div class="div text-left">
           <img :src="profil" alt="" />
         </div>
-        <div class="row">
+        <div class="row mt-5">
           <div class="col">
             <div class="col">İsim: {{ isim }}</div>
             <div class="col">Meslek:{{ meslek }}</div>
@@ -569,7 +569,7 @@ export default {
   position: relative;
   width: 100%;
   height: auto;
-  background-color: #136a8a !important;
+  background-color: #17befa !important;
 }
 .tabs-section {
   width: 100%;
@@ -620,7 +620,8 @@ input:visited {
 /* PREVIEW */
 .preview {
   width: 100%;
-  height: auto;
+  height: 1120px;
+  border: 5px solid red;
   background-color: rgb(243, 206, 103);
   padding: 8% 4% !important;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -633,6 +634,10 @@ input:visited {
 }
 .preview .col {
   margin-left: 0px !important;
+  padding-left: 40px !important;
+  padding-right: 0px !important;
+}
+.preview .col .col {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
