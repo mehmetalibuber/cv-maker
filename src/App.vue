@@ -5,7 +5,7 @@
       <div class="tabs-section">
         <b-card no-body>
           <b-tabs card>
-            <b-tab title="Genel Bilgiler">
+            <b-tab title="Genel Bilgiler" active>
               <b-card-text>
                 <form>
                   <div class="form-group validate-form">
@@ -17,6 +17,7 @@
                           type="text"
                           required
                           placeholder="ad - soyad"
+                          v-model="isim"
                         />
                       </div>
                       <div class="col">
@@ -26,6 +27,7 @@
                           type="text"
                           required
                           placeholder="meslek"
+                          v-model="meslek"
                         />
                       </div>
                     </div>
@@ -38,6 +40,7 @@
                           type="text"
                           required
                           placeholder="şehir"
+                          v-model="sehir"
                         />
                       </div>
                       <div class="col">
@@ -47,6 +50,7 @@
                           type="email"
                           required
                           placeholder="mail adresi"
+                          v-model="mail"
                         />
                       </div>
                     </div>
@@ -58,6 +62,7 @@
                           type="number"
                           required
                           placeholder="telefon numarası"
+                          v-model="telefon"
                         />
                       </div>
                       <div class="col">
@@ -66,6 +71,7 @@
                           id="web"
                           type="text"
                           placeholder="internet sitesi"
+                          v-model="site"
                         />
                       </div>
                     </div>
@@ -282,7 +288,7 @@
                 </form></b-card-text
               >
             </b-tab>
-            <b-tab title="Yabancı Dil" active>
+            <b-tab title="Yabancı Dil">
               <b-card-text
                 ><form @submit.prevent="DIL_KAYIT">
                   <div class="form-group">
@@ -401,6 +407,13 @@ export default {
   name: "App",
   data() {
     return {
+      isim: "",
+      meslek: "",
+      sehir: "",
+      mail: "",
+      telefon: "",
+      site: "",
+
       Deneyimler: [],
       Deneyim: {
         firma: "",
