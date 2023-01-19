@@ -5,7 +5,7 @@
       <div class="tabs-section">
         <b-card no-body>
           <b-tabs card>
-            <b-tab title="Genel Bilgiler" active>
+            <b-tab title="Genel Bilgiler">
               <b-card-text>
                 <form>
                   <div class="form-group validate-form">
@@ -79,7 +79,7 @@
                 </form>
               </b-card-text>
             </b-tab>
-            <b-tab title="Eğitim">
+            <b-tab title="Eğitim" active>
               <b-card-text>
                 <form action="">
                   <div class="form-group">
@@ -91,11 +91,12 @@
                           type="text"
                           required
                           placeholder="lise adı"
+                          v-model="lise"
                         />
                       </div>
                       <div class="col">
                         <label for="lisebitis">Bitiş Tarihi</label> <br />
-                        <input id="lisebitis" type="date" />
+                        <input id="lisebitis" type="date" v-model="liseBitis" />
                       </div>
                     </div>
                     <div class="row mt-5">
@@ -105,11 +106,16 @@
                           id="universite"
                           type="text"
                           placeholder="üniversite adı"
+                          v-model="universite"
                         />
                       </div>
                       <div class="col">
                         <label for="unibitis">Bitiş Tarihi</label> <br />
-                        <input id="unibitis" type="date" />
+                        <input
+                          id="unibitis"
+                          type="date"
+                          v-model="universiteBitis"
+                        />
                       </div>
                     </div>
                   </div>
@@ -413,6 +419,11 @@ export default {
       mail: "",
       telefon: "",
       site: "",
+
+      lise: "",
+      liseBitis: "",
+      universite: "",
+      universiteBitis: "",
 
       Deneyimler: [],
       Deneyim: {
