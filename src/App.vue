@@ -648,5 +648,7 @@ input:visited {
   border-radius: 50%;
   float: right;
   position: relative;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 </style>
