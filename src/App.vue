@@ -5,7 +5,7 @@
       <div class="tabs-section">
         <b-card no-body>
           <b-tabs card>
-            <b-tab title="Genel Bilgiler">
+            <b-tab title="Genel Bilgiler" active>
               <b-card-text>
                 <form>
                   <div class="form-group validate-form">
@@ -72,6 +72,16 @@
                           type="text"
                           placeholder="internet sitesi"
                           v-model="site"
+                        />
+                      </div>
+                      <div class="col">
+                        <label for="profil">Profil Fotoğrafı</label>
+                        <input
+                          type="file"
+                          name=""
+                          id="profil"
+                          ref="profil"
+                          @change="PROFILE"
                         />
                       </div>
                     </div>
@@ -202,7 +212,7 @@
                 </table>
               </b-card-text>
             </b-tab>
-            <b-tab title="Sosyal Medya" active>
+            <b-tab title="Sosyal Medya">
               <b-card-text>
                 <form>
                   <div class="form-group">
@@ -371,30 +381,42 @@
     <!-- CONTENT SECTION START -->
     <section class="preview container" ref="content">
       <div class="col">
+        <div class="div text-left">
+          <img :src="profil" alt="" />
+        </div>
         <div class="row">
           <div class="col">
-            <div class="col">İSİM</div>
-            <div class="col">GÖREV</div>
-            <div class="col">WEBSİTE</div>
+            <div class="col">İsim: {{ isim }}</div>
+            <div class="col">Meslek:{{ meslek }}</div>
+            <div class="col">İnternet Sitesi: {{ site }}</div>
           </div>
           <div class="col">
-            <div class="col">MAİL</div>
-            <div class="col">TELEFON</div>
-            <div class="col">ŞEHİR</div>
+            <div class="col">Mail Adresi: {{ mail }}</div>
+            <div class="col">Telefon: {{ telefon }}</div>
+            <div class="col">Şehir: {{ sehir }}</div>
           </div>
         </div>
-        <hr />
+        <hr class="top_hr" />
         <div class="col">
           <div class="row">
             <div class="col">
-              <div class="col">DENEYİMLER</div>
+              <div class="col">DENEYİM</div>
               <div class="col">
                 <ul>
-                  <li>
-                    <p>firma 1</p>
-                    <p>pozisyon</p>
-                    <p>giriş</p>
-                    <p>çıkış</p>
+                  <li v-for="deneyim in Deneyimler" :key="deneyim">
+                    <p>Firma Adı: {{ deneyim.firma }}</p>
+                    <p>Pozisyon: {{ deneyim.pozisyon }}</p>
+                    <p>Giriş Tarihi: {{ deneyim.giris }}</p>
+                    <p>Çıkış Tarihi: {{ deneyim.cikis }}</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="col">YABANCI DİL</div>
+              <div class="col">
+                <ul>
+                  <li v-for="dil in Diller" :key="dil">
+                    Dil: {{ dil.dil }} <br />
+                    Seviye: {{ dil.dil_seviye }}
                   </li>
                 </ul>
               </div>
@@ -402,8 +424,27 @@
             <div class="col">
               <div class="col">EĞİTİM BİLGİLERİ</div>
               <div class="col">
-                <p>lise adı</p>
-                <p>mezuniyet tarihi</p>
+                <p>Üniversite Adı: {{ universite }}</p>
+                <p>Mezuniyet Tarihi: {{ universiteBitis }}</p>
+              </div>
+              <div class="col mt-3">
+                <p>Lise Adı: {{ lise }}</p>
+                <p>Mezuniyet Tarihi: {{ liseBitis }}</p>
+              </div>
+              <div class="col mt-5">SOSYAL MEDYA</div>
+              <div class="col">
+                <i class="fab fa-linkedin"></i> {{ linkedin }} <br />
+                <i class="fab fa-facebook"></i> {{ facebook }} <br />
+                <i class="fab fa-instagram"></i>{{ instagram }} <br />
+                <i class="fab fa-github"></i> {{ github }} <br />
+              </div>
+              <div class="col mt-5">YETENEK VE HOBİ</div>
+              <div class="col">
+                <ul>
+                  <li v-for="yet in Yetenekler" :key="yet">
+                    {{ yet.yetenek }} - {{ yet.seviye }}
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -431,6 +472,7 @@ export default {
       mail: "",
       telefon: "",
       site: "",
+      profil: "",
 
       lise: "",
       liseBitis: "",
@@ -500,6 +542,14 @@ export default {
         this.Diller.push(this.Dil);
       }
       this.Dil = {};
+    },
+    PROFILE(e) {
+      let photo = e.target.files[0];
+      let reader = new FileReader();
+      reader.readAsDataURL(photo);
+      reader.onload = () => {
+        this.profil = reader.result;
+      };
     },
 
     //
@@ -571,6 +621,32 @@ input:visited {
 .preview {
   width: 100%;
   height: auto;
+  background-color: rgb(243, 206, 103);
+  padding: 8% 4% !important;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.preview p {
+  margin: 0 !important;
+}
+.preview li {
+  margin: 0 !important;
+}
+.preview .col {
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.preview .top_hr {
   background-color: red;
+  width: 100%;
+  height: 12px;
+  border-radius: 6px;
+}
+.preview img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  float: right;
+  position: relative;
 }
 </style>
