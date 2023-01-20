@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <!-- tabs start -->
-    <section>
+    <img src="./assets/callback.png" alt="" class="call-img" />
+    <section class="pt-5">
       <div class="col text-center pt-5">
         <h1>ULTOF Çevrimiçi CV Maker</h1>
       </div>
@@ -10,7 +11,7 @@
       <div class="tabs-section">
         <b-card no-body>
           <b-tabs card>
-            <b-tab title="Genel Bilgiler">
+            <b-tab title="Genel Bilgiler" active>
               <b-card-text>
                 <form>
                   <div class="form-group validate-form">
@@ -64,7 +65,7 @@
                         <label for="tel">Telefon Numarası</label>
                         <input
                           id="tel"
-                          type="number"
+                          type="text"
                           required
                           placeholder="telefon numarası"
                           v-model="telefon"
@@ -377,7 +378,7 @@
                 </table></b-card-text
               >
             </b-tab>
-            <b-tab title="Özet Bilgi" active>
+            <b-tab title="Özet Bilgi">
               <b-card-text
                 ><form>
                   <div class="form-group">
@@ -416,7 +417,7 @@
         <div class="div text-left">
           <img :src="profil" alt="" />
         </div>
-        <div class="row mt-5">
+        <div class="row">
           <div class="col">
             <div class="col">İsim: {{ isim }}</div>
             <div class="col">Meslek:{{ meslek }}</div>
@@ -484,16 +485,21 @@
         <hr class="top_hr" />
         <div class="col">
           * ÖZET BİLGİ
-          <div class="row">
+          <div class="row mt-1">
             <p>{{ ozet }}</p>
           </div>
         </div>
+        <div class="col mt-5 pt-5 text-center">
+          ULTOF ~ Useful Life Tech Of Future
+        </div>
       </div>
-      <p class="signature">ULTOF ~ Useful Life Tech Of Future</p>
     </section>
     <!-- CONTENT SECTION END -->
-
-    <button @click="generatePDF">save</button>
+    <div class="text-center mt-4 mb-5 pb-3">
+      <button @click="generatePDF" class="btn btn-warning pl-5 pr-5">
+        CV İNDİR
+      </button>
+    </div>
   </div>
 </template>
 
@@ -610,10 +616,21 @@ export default {
   position: relative;
   width: 100%;
   height: auto;
-  background-color: #17befa !important;
+  background-image: url("./assets/img-2.jpg");
+  background-size: auto;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #fff !important;
 }
 #app h1 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+#app .call-img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .tabs-section {
   width: 100%;
@@ -669,7 +686,7 @@ textarea:focus-visible {
   width: 100%;
   height: 1120px;
   border: 5px solid red;
-  background-color: rgb(243, 206, 103);
+  background-color: rgba(243, 206, 103, 0.673);
   padding: 8% 4% !important;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -711,5 +728,10 @@ textarea:focus-visible {
   right: 260px;
   position: absolute;
   display: block;
+}
+@media (max-width: 990px) {
+  body {
+    display: none !important;
+  }
 }
 </style>
