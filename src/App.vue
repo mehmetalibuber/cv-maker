@@ -10,7 +10,7 @@
       <div class="tabs-section">
         <b-card no-body>
           <b-tabs card>
-            <b-tab title="Genel Bilgiler" active>
+            <b-tab title="Genel Bilgiler">
               <b-card-text>
                 <form>
                   <div class="form-group validate-form">
@@ -377,6 +377,29 @@
                 </table></b-card-text
               >
             </b-tab>
+            <b-tab title="Özet Bilgi" active>
+              <b-card-text
+                ><form>
+                  <div class="form-group">
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label for="ozet">Özet Bilgi</label> <br />
+                          <textarea
+                            type="text"
+                            id="ozet"
+                            rows="4"
+                            cols="80"
+                            placeholder="Eklemek istediğiniz, sizi anlatan etkileyici bir metin girebilirsiniz!"
+                            v-model="ozet"
+                          ></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </b-card-text>
+            </b-tab>
           </b-tabs>
         </b-card>
       </div>
@@ -399,7 +422,7 @@
             <div class="col">Meslek:{{ meslek }}</div>
             <div class="col">İnternet Sitesi: {{ site }}</div>
           </div>
-          <div class="col">
+          <div class="col second-cols">
             <div class="col">Mail Adresi: {{ mail }}</div>
             <div class="col">Telefon: {{ telefon }}</div>
             <div class="col">Şehir: {{ sehir }}</div>
@@ -430,9 +453,9 @@
                 </ul>
               </div>
             </div>
-            <div class="col">
+            <div class="col second-cols">
               <div class="col">EĞİTİM BİLGİLERİ</div>
-              <div class="col">
+              <div class="col mt-3">
                 <p>Üniversite Adı: {{ universite }}</p>
                 <p>Mezuniyet Tarihi: {{ universiteBitis }}</p>
               </div>
@@ -441,10 +464,10 @@
                 <p>Mezuniyet Tarihi: {{ liseBitis }}</p>
               </div>
               <div class="col mt-5">SOSYAL MEDYA</div>
-              <div class="col">
+              <div class="col mt-1">
                 <i class="fab fa-linkedin"></i> {{ linkedin }} <br />
                 <i class="fab fa-facebook"></i> {{ facebook }} <br />
-                <i class="fab fa-instagram"></i>{{ instagram }} <br />
+                <i class="fab fa-instagram"></i> {{ instagram }} <br />
                 <i class="fab fa-github"></i> {{ github }} <br />
               </div>
               <div class="col mt-5">YETENEK VE HOBİ</div>
@@ -458,7 +481,15 @@
             </div>
           </div>
         </div>
+        <hr class="top_hr" />
+        <div class="col">
+          * ÖZET BİLGİ
+          <div class="row">
+            <p>{{ ozet }}</p>
+          </div>
+        </div>
       </div>
+      <p class="signature">ULTOF ~ Useful Life Tech Of Future</p>
     </section>
     <!-- CONTENT SECTION END -->
 
@@ -510,6 +541,7 @@ export default {
         dil: "",
         dil_seviye: "",
       },
+      ozet: "",
     };
   },
   created() {},
@@ -613,7 +645,8 @@ label {
   margin: 10px 0 5px 0;
 }
 input,
-select {
+select,
+textarea {
   border: 1px solid orange;
   border-radius: 6px;
   padding: 8px 5px;
@@ -623,7 +656,9 @@ select {
 input:focus-visible,
 input:active,
 input:focus,
-input:visited {
+input:visited,
+textarea:active,
+textarea:focus-visible {
   outline: none !important;
   border-block-color: red;
   border-block-start-color: aqua;
@@ -646,8 +681,8 @@ input:visited {
 }
 .preview .col {
   margin-left: 0px !important;
-  padding-left: 40px !important;
-  padding-right: 0px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
 .preview .col .col {
   padding-left: 0px !important;
@@ -667,5 +702,14 @@ input:visited {
   position: relative;
   margin-left: 20px;
   margin-top: 20px;
+}
+.preview .second-cols {
+  margin-left: 100px !important;
+}
+.preview .signature {
+  bottom: 50px;
+  right: 260px;
+  position: absolute;
+  display: block;
 }
 </style>
