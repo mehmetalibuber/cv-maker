@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <!-- tabs start -->
+    <section>
+      <div class="col text-center pt-5">
+        <h1>ULTOF Çevrimiçi CV Maker</h1>
+      </div>
+    </section>
     <section class="container">
       <div class="tabs-section">
         <b-card no-body>
@@ -377,7 +382,11 @@
       </div>
     </section>
     <!-- tabs end -->
-
+    <section>
+      <div class="col text-center pt-5 pb-3">
+        <h1>CV Önizleme</h1>
+      </div>
+    </section>
     <!-- CONTENT SECTION START -->
     <section class="preview container" ref="content">
       <div class="col">
@@ -571,10 +580,13 @@ export default {
   height: auto;
   background-color: #17befa !important;
 }
+#app h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
 .tabs-section {
   width: 100%;
   justify-content: center;
-  padding: 10% 0;
+  padding: 2% 0;
 }
 .nav-tabs .nav-link {
   font-size: 18px;
