@@ -628,7 +628,7 @@ export default {
 }
 #app .call-img {
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 }
