@@ -146,7 +146,7 @@
                 <form @submit.prevent="DENEYIM_KAYIT">
                   <div class="form-group">
                     <div class="row">
-                      <div class="col">
+                      <div class="col-lg-4">
                         <label for="isyeri">Firma Adı </label> <br />
                         <input
                           id="isyeri"
@@ -155,7 +155,7 @@
                           v-model="Deneyim.firma"
                         />
                       </div>
-                      <div class="col">
+                      <div class="col-lg-4">
                         <label for="pozisyon">Pozisyon </label> <br />
                         <input
                           id="pozisyon"
@@ -164,7 +164,7 @@
                           v-model="Deneyim.pozisyon"
                         />
                       </div>
-                      <div class="col">
+                      <div class="col-lg-4">
                         <div class="row">
                           <div class="col">
                             <label for="isegiris">Giriş Tarihi</label> <br />
@@ -182,14 +182,17 @@
                               v-model="Deneyim.cikis"
                             />
                           </div>
-                          <div class="col">
-                            <br />
-                            <button type="submit" class="btn btn-primary mt-3">
-                              EKLE
-                            </button>
-                          </div>
                         </div>
                       </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <br />
+                      <button
+                        type="submit"
+                        class="btn btn-primary mt-3 text-center w-100"
+                      >
+                        EKLE
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -225,48 +228,42 @@
               <b-card-text>
                 <form>
                   <div class="form-group">
-                    <div class="col">
-                      <div class="row">
-                        <div class="col">
-                          <label for="linkedin">LinkledIn</label>
-                          <input
-                            type="text"
-                            id="linkedin"
-                            placeholder="linkedin"
-                            v-model="linkedin"
-                          />
-                        </div>
-                        <div class="col">
-                          <label for="face">Facebook</label>
-                          <input
-                            type="text"
-                            id="face"
-                            placeholder="facebook"
-                            v-model="facebook"
-                          />
-                        </div>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <label for="linkedin">LinkledIn</label>
+                        <input
+                          type="text"
+                          id="linkedin"
+                          placeholder="linkedin"
+                          v-model="linkedin"
+                        />
                       </div>
-                      <div class="col">
-                        <div class="row">
-                          <div class="col">
-                            <label for="insta">Instagram</label>
-                            <input
-                              type="text"
-                              id="insta"
-                              placeholder="instagram"
-                              v-model="instagram"
-                            />
-                          </div>
-                          <div class="col">
-                            <label for="git">GitHub</label>
-                            <input
-                              type="text"
-                              id="git"
-                              placeholder="github"
-                              v-model="github"
-                            />
-                          </div>
-                        </div>
+                      <div class="col-lg-6">
+                        <label for="face">Facebook</label>
+                        <input
+                          type="text"
+                          id="face"
+                          placeholder="facebook"
+                          v-model="facebook"
+                        />
+                      </div>
+                      <div class="col-lg-6">
+                        <label for="insta">Instagram</label>
+                        <input
+                          type="text"
+                          id="insta"
+                          placeholder="instagram"
+                          v-model="instagram"
+                        />
+                      </div>
+                      <div class="col-lg-6">
+                        <label for="git">GitHub</label>
+                        <input
+                          type="text"
+                          id="git"
+                          placeholder="github"
+                          v-model="github"
+                        />
                       </div>
                     </div>
                   </div>
@@ -297,7 +294,10 @@
                           </select>
                         </div>
                         <div class="col pt-3">
-                          <button type="submit" class="btn btn-primary mt-4">
+                          <button
+                            type="submit"
+                            class="btn btn-primary mt-4 w-100 text-center"
+                          >
                             EKLE
                           </button>
                         </div>
@@ -351,9 +351,11 @@
                             <option value="C2">C2</option>
                           </select>
                         </div>
-
                         <div class="col pt-3">
-                          <button type="submit" class="btn btn-primary mt-4">
+                          <button
+                            type="submit"
+                            class="btn btn-primary mt-4 text-center w-100"
+                          >
                             EKLE
                           </button>
                         </div>
