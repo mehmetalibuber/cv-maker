@@ -4,7 +4,10 @@
     <img src="./assets/callback.png" alt="" class="call-img" />
     <section class="pt-5">
       <div class="col text-center pt-5">
-        <h1>ULTOF Çevrimiçi CV Maker</h1>
+        <h1><strong> ULTOF Online CV Maker </strong></h1>
+        <h5>
+          &#128187;&nbsp;Dakikalar içinde özgeçmişini hazırla!&nbsp;&#128209;
+        </h5>
       </div>
     </section>
     <section class="container">
@@ -408,7 +411,7 @@
     <!-- tabs end -->
     <section>
       <div class="col text-center pt-5 pb-3">
-        <h1>CV Önizleme</h1>
+        <h1><strong> CV Önizleme </strong></h1>
       </div>
     </section>
     <!-- CONTENT SECTION START -->
@@ -683,6 +686,7 @@ textarea:focus-visible {
 }
 /* PREVIEW */
 .preview {
+  position: relative;
   width: 100%;
   height: 1120px;
   border: 5px solid red;
